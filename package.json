@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "nodemon",
-    "build": "tsc"
+    "start:dev": "nodemon",
+    "start:prod": "tsc && node dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +25,7 @@
     "ts-node": "^10.9.2"
   },
   "dependencies": {
-    "-": "^0.0.1",
+    "dotenv": "^16.4.2",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "ts-dotenv": "^0.9.1",
