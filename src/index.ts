@@ -1,19 +1,19 @@
-import fs from 'node:fs';
 import http from 'node:http';
-import { hostname } from 'node:os';
+import { getOneUser, getUsers } from './controllers/usersController';
 
-const host = '127.0.0.1';
-const port = 3000;
+const PORT = process.env.PORT || 5000;
+const server = http.createServer();
 
-const server = http.createServer((req, res) => {
-  res.end('jopawerw');
+server.listen(PORT, () => {});
+
+server.on('request', (req, res) => {
+  const uuid = req.url?.split('/')[3];
+  if (req.url === '/api/users' && req.method === 'GET') {
+    getUsers(req, res);
+  } else if (uuid && req.method === 'GET') {
+    getOneUser(req, res);
+  } else {
+    res.writeHead(404, { 'Content-type': 'text/plain' });
+    res.end('The requested resourse is not found!');
+  }
 });
-
-server.listen(port, host, () => {
-  console.log('jfsdo1s1111pa');
-});
-
-const a = a => {
-  const as = 3242;
-  return a + as;
-};

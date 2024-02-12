@@ -16,6 +16,9 @@
   },
   "plugins": ["@typescript-eslint", "eslint-comments", "import", "prettier"],
   "rules": {
+    "prefer-promise-reject-errors": "off",
+    "no-plusplus": "off",
+    "arrow-body-style": "off",
     "prettier/prettier": "error",
     "import/prefer-default-export": "off",
     "import/no-default-export": "error",
